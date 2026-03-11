@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs@7.31.2/babylon.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs-loaders@7.31.2/babylonjs.loaders.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@7.31.2/babylon.gui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs-inspector@7.31.2/babylon.inspector.bundle.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Flood - Coursework Prototype</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>The Flood</h1>
+      <div id="authStatus">Not logged in</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel auth-panel">
+        <h2>Account</h2>
+
+        <div class="tabs">
+          <button id="showLoginBtn" class="tab active">Login</button>
+          <button id="showRegisterBtn" class="tab">Register</button>
+        </div>
+
+        <form id="loginForm" class="form">
+          <label>Username</label>
+          <input id="loginUsername" type="text" maxlength="20" required />
+
+          <label>Password</label>
+          <input id="loginPassword" type="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+
+        <form id="registerForm" class="form hidden">
+          <label>Username</label>
+          <input id="registerUsername" type="text" maxlength="20" required />
+
+          <label>Email (optional)</label>
+          <input id="registerEmail" type="email" maxlength="100" />
+
+          <label>Password</label>
+          <input id="registerPassword" type="password" required />
+          <small class="hint">8+ chars, upper/lower/number/symbol</small>
+
+          <button type="submit">Create Account</button>
+        </form>
+
+        <div id="authMessage" class="message"></div>
+
+        <hr />
+
+        <h3>Profile / Stats</h3>
+        <div id="profileBox" class="box">
+          <p>Log in to load your stats.</p>
+        </div>
+      </section>
+
+      <section class="panel game-panel">
+        <h2>Game</h2>
+        <div class="game-controls">
+          <button id="startGameBtn">Start Run</button>
+          <button id="resetGameBtn">Reset Scene</button>
+        </div>
+
+        <div id="gameInfo" class="box">
+          <p><strong>Story:</strong> A TV news alert warns of an incoming tsunami. You have 3 minutes to escape your apartment and reach the roof.</p>
+          <p><strong>Controls:</strong> WASD move, Mouse look, E interact, Shift sprint</p>
+        </div>
+
+        <div id="hud">
+          <span id="timerText">03:00</span>
+          <span id="objectiveText">Objective: Wait for the broadcast...</span>
+          <span id="endingText"></span>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+      </section>
+
+      <section class="panel leaderboard-panel">
+        <h2>Leaderboard (Best Escape Times)</h2>
+        <button id="refreshLeaderboardBtn">Refresh</button>
+        <div id="leaderboardBox" class="box"></div>
+      </section>
+    </main>
+  </div>
+</script>
+<script type="module" src="./app.js"></script>
+<script type="module" src="./babylonBoot.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
